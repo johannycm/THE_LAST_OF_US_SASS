@@ -1,0 +1,158 @@
+$primary-bg: #000000
+$secondary-color: #282814
+$accent-color: #142814
+$font-color-light: #f0f0f0
+$font-color-dark: #141414
+$button-hover-color: #142814
+
+$font-family: 'Poppins', sans-serif
+
+// Mixin para contenedores
+=container
+  max-width: 1500px
+  margin: 0 auto
+  padding: 0 20px
+
+// Mixin para botones
+=button-style
+  background-color: $secondary-color
+  color: $font-color-light
+  border: none
+  padding: 10px 20px
+  text-transform: uppercase
+  cursor: pointer
+  transition: background-color 0.3s ease
+
+  &:hover
+    background-color: $button-hover-color
+
+body
+  height: 100%
+  margin: 0
+  padding: 0
+  background-color: $primary-bg
+  color: $font-color-light
+  font-family: $font-family
+
+// Barra de navegación
+.navbar
+  background-color: $primary-bg
+  color: $font-color-light
+
+  .container
+    +container
+    display: flex
+    justify-content: space-between
+    align-items: center
+    .logo
+      font-size: 24px
+
+    .nav-links
+      list-style: none
+      display: flex
+
+      li
+        margin-left: 20px
+
+        a
+          color: $font-color-light
+          text-decoration: none
+          font-weight: bold
+          transition: color 0.3s ease
+
+          &:hover
+            color: $secondary-color
+
+// Header
+.main-header
+  background: url('./header.png') no-repeat center center/cover
+  color: $font-color-light
+  text-align: center
+  padding: 220px 0
+
+
+  h2
+    font-size: 48px
+
+  p
+    font-size: 18px
+    margin-top: 10px
+
+  .container
+    +container
+
+// Sección destacada con imagen y párrafo
+.featured-section
+  padding: 70px 0
+  background-color: $primary-bg
+  color: $font-color-light
+
+  .container
+    +container
+
+  .featured-content
+    display: grid
+    grid-template-columns: 1fr 1fr
+    gap: 30px
+    align-items: center
+
+    img
+      width: 100%
+      border-radius: 100px
+
+    .featured-text
+      h3
+        font-size: 36px
+        margin-bottom: 20px
+
+      p
+        font-size: 18px
+        line-height: 1.6
+        color: $font-color-light
+
+// Sección de blogs (ahora al final)
+.blog-grid
+  padding: 50px 0
+  background-color: $primary-bg
+
+  .container
+    +container
+    display: grid
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
+    gap: 20px
+
+  .blog-card
+    background-color: $font-color-dark
+    padding: 20px
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5)
+    text-align: center
+    border-radius: 10px
+
+    img
+      max-width: 100%
+      border-radius: 10px 10px 0 0
+
+    h3
+      margin-top: 15px
+      font-size: 24px
+      color: $font-color-light
+
+    p
+      font-size: 16px
+      color: lighten(#7f8c8d, 20%)
+      margin: 10px 0
+
+    .btn
+      +button-style
+      display: inline-block
+      margin-top: 15px
+      border-radius: 5px
+
+// Responsive para dispositivos móviles
+@media (max-width: 768px)
+  .featured-content, .blog-grid
+    grid-template-columns: 1fr
+    text-align: center
+
+    img
+      margin-bottom: 20px
